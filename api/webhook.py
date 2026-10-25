@@ -2,9 +2,9 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/api/webhook', methods=['GET', 'POST'])
-def webhook():
+@app.route('/', defaults={'path': ''}, methods=['GET', 'POST'])
+@app.route('/<path:path>', methods=['GET', 'POST'])
+def webhook(path):
     try:
         if request.method == 'GET':
             mode = request.args.get('hub.mode')
