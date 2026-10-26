@@ -20,9 +20,11 @@ def webhook():
         else:
             return "Verification failed", 403
             
-    # استلام رسائل واتساب لاحقاً (POST)
+    # استقبال الرسائل الواردة من واتساب (POST)
     elif request.method == 'POST':
         data = request.json
+        print("Received webhook data:", data)
+        # هنا سنقوم لاحقاً بمعالجة النص والرد عليه
         return "EVENT_RECEIVED", 200
 
 if __name__ == '__main__':
