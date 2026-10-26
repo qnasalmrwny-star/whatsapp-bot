@@ -7,6 +7,7 @@ def home():
     return "Bot is running successfully!"
 
 @app.route('/webhook', methods=['GET', 'POST'])
+@app.route('/api/index', methods=['GET', 'POST'])
 def webhook():
     # التحقق من الويب هوك الخاص بـ Meta (GET)
     if request.method == 'GET':
